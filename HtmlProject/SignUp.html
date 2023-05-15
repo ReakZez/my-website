@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com-->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<title> Registration or Sign Up form in HTML CSS | CodingLab </title>-->
+    <link rel="stylesheet" href="Signup.css">
+   </head>
+<body>
+    <script type="text/javascript">
+
+        var checker=0;
+        function check()
+        {
+            var flag=true;
+            //-----------name not empty----------------------------------
+            if (document.all.firstname.value=="")
+            {
+                 document.all.firstname.style.backgroundColor="#FF0000";
+                 document.all.firstCheck.style.visibility="visible";
+                 flag=false;
+            }
+            else
+            {
+                 document.all.firstname.style.backgroundColor="#FF0000";
+                 document.all.firstCheck.style.visibility="hidden";
+            }
+        
+           
+            //-----------passwords match and not empty----------------------------------
+            if(document.all.password1.value.length<9)
+            {
+                document.all.password1.style.backgroundColor="#FF0000";
+                document.all.password2.style.backgroundColor="#FF0000";
+                document.getElementById('passCheck').innerHTML="password must be at least 9 letters and numbers"
+                document.all.passCheck.style.visibility="visible";
+                flag=false;
+            }
+            else if(document.all.password1.value!=document.all.password2.value)
+            {
+                document.all.password1.style.backgroundColor="#FF0000";
+                document.all.password2.style.backgroundColor="#FF0000";
+                document.getElementById('passCheck').innerHTML="passwords are not matching"
+                document.all.passCheck.style.visibility="visible";
+                flag=false;
+            }
+            else
+            {
+                document.all.password1.style.backgroundColor="#FF0000";
+                document.all.password2.style.backgroundColor="#FF0000";
+                document.all.passCheck.style.visibility="hidden";
+            }
+        
+            //-----------email is valid and not empty----------------------------------
+            
+            var x=document.all.email.value;
+            var point=x.indexOf(".");
+            var shtrudel=x.indexOf("@");
+        
+            document.all.email.style.backgroundColor="#FF0000";
+            document.all.emailCheck.style.visibility="hidden";
+                
+            if ((point-shtrudel<2)||(shtrudel<1)||(point<3))
+            {
+                document.all.email.style.backgroundColor="#FF0000";
+                document.all.emailCheck.style.visibility="visible";
+                flag=false;
+            }
+            return flag;
+        }
+        function myFunction() {
+        alert("are you sure you want to sign-up?");
+        }
+        </script>
+  <div class="wrapper">
+    <h2>Registration</h2>
+    <form action="index.html" method="post"  onsubmit="return check()">
+      <div class="input-box">
+        <input type="text" name="firstname"  placeholder="Enter your name">
+        <div id="firstCheck" style="visibility: hidden;background-color: rgb(255, 0, 0);">enter your first name</div>
+
+      </div>
+      <div class="input-box">
+        <input type="text" name="email" placeholder="Enter your email" >
+        <div id="emailCheck" style="visibility: hidden;background-color: rgb(255, 0, 0);">enter a valid email</div>
+
+      </div>
+      <div class="input-box">
+        <input type="password" name="password1" placeholder="Create password">
+        <div id="passCheck" style="visibility: hidden;background-color: rgb(255, 0, 0);">passwords are not matching</div>
+
+      </div>
+      <div class="input-box">
+        <input type="password" name="password2" placeholder="Confirm password">
+      </div>
+      <div class="policy">
+        <input type="checkbox">
+        <h3>I accept all terms & condition</h3>
+      </div>
+      <div class="input-box button">
+        <input type="Submit" a href="Login.html" value="Register Now">
+      </div>
+      <div class="text">
+        <h3>Already have an account? <a href="Login.html">Login now</a></h3>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
